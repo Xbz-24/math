@@ -3,6 +3,7 @@
 \usepackage{amsmath, amssymb}
 \usepackage{geometry}
 \usepackage{titlesec}
+\usepackage{fancyhdr}
 
 % Page layout
 \geometry{a4paper, margin=1in}
@@ -10,20 +11,28 @@
 % Section formatting
 \titleformat{\section}[block]{\normalfont\Large\bfseries}{Question \thesection:}{1em}{}
 
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Mathematics Test}}
+\rfoot{Page \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
 \begin{document}
 	
 	\begin{center}
-		\Large\textbf{Mathematics Test}
+		\LARGE\textbf{Mathematics Test}
 	\end{center}
 	\vspace{1cm}
 	
-	\section*{}
+	\section{}
 	Compute:
-	\begin{align*}
-		\lim_{{n \to +\infty}} \frac{2^{-n} + 12n}{\sqrt{4n^2 + 5} + 2n}
-	\end{align*}
+	\[
+	\lim_{{n \to +\infty}} \frac{2^{-n} + 12n}{\sqrt{4n^2 + 5} + 2n}
+	\]
 	
-	\section*{}
+	\section{}
 	Let \( f: \mathbb{R} \to \mathbb{R} \) be defined as
 	\[
 	f(x) = 
