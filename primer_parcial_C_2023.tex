@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{mathpazo} % Palatino font
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{background}
+
+% Watermark
+\backgroundsetup{
+	scale=1,
+	color=black!20,
+	position=current page.south,
+	vshift=10cm,
+	contents={\Huge \textbf{Mathematics Examination}}
+}
+
+\geometry{a4paper, margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{purple}{Math Test}}
+\lhead{\textcolor{purple}{\today}}
+\rfoot{Page \thepage}
+
+\titleformat*{\section}{\large\bfseries\color{purple}}
+\titleformat*{\subsection}{\bfseries\color{purple}}
+
+\begin{document}
+	
+	\begin{center}
+		\colorbox{gray!20}{
+			\parbox{0.7\textwidth}{
+				\centering \Huge \textcolor{purple}{Mathematics Examination}
+			}
+		}
+	\end{center}
+	\vspace{10mm}
+	
+	\section*{Question 1}
+	
+	Given two lines:
+	\begin{align*}
+		L1 &: X = \lambda(0,-1,1) + (4,2,1), \\
+		L2 &: X = \lambda(0,1,2) + (4,-2,-4)
+	\end{align*}
+	\vspace{5mm}
+	\noindent and the point \( A = (4,2,1) \).
+	
+	\vspace{5mm}
+	\textcolor{purple}{\rule{\linewidth}{0.5mm}}
+	Determine:
+	\begin{enumerate}[label=\textcolor{purple}{\arabic*}.]
+		\item A point \( B \) that belongs to both \( L1 \) and \( L2 \).
+		\item A point \( C \) on \( L2 \) such that triangle \( ABC \) is right-angled at \( A \).
+	\end{enumerate}
+	
+\end{document}
