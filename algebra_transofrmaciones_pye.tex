@@ -34,4 +34,106 @@
 	
 	(a) Define \( T: M_{2\times2} (K) \to M_{2\times2} (K) \) by \( T(A) = A^t \). Calculate \([T]_{\alpha}^{\alpha}\).
 	
+	\textbf{Solution:}
+	
+	To find the matrix representation of \( T \) with respect to the basis \( \alpha \), we'll apply the transformation \( T \) to each matrix in the basis \( \alpha \) and express the result as a linear combination of the matrices in \( \alpha \). The coefficients of this linear combination will give us the columns of \([T]_{\alpha}^{\alpha}\).
+	
+	1. For the matrix 
+	\[
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & 0
+	\end{pmatrix}
+	\]
+	its transpose is:
+	\[
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & 0
+	\end{pmatrix}
+	\]
+	This gives the first column of \([T]_{\alpha}^{\alpha}\) as:
+	\[ \begin{pmatrix}
+		1 \\
+		0 \\
+		0 \\
+		0
+	\end{pmatrix} \]
+	
+	2. For the matrix 
+	\[
+	\begin{pmatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pmatrix}
+	\]
+	its transpose is:
+	\[
+	\begin{pmatrix}
+		0 & 0 \\
+		1 & 0
+	\end{pmatrix}
+	\]
+	This gives the second column of \([T]_{\alpha}^{\alpha}\) as:
+	\[ \begin{pmatrix}
+		0 \\
+		0 \\
+		1 \\
+		0
+	\end{pmatrix} \]
+	
+	3. For the matrix 
+	\[
+	\begin{pmatrix}
+		0 & 0 \\
+		1 & 0
+	\end{pmatrix}
+	\]
+	its transpose is:
+	\[
+	\begin{pmatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pmatrix}
+	\]
+	This gives the third column of \([T]_{\alpha}^{\alpha}\) as:
+	\[ \begin{pmatrix}
+		0 \\
+		1 \\
+		0 \\
+		0
+	\end{pmatrix} \]
+	
+	4. For the matrix 
+	\[
+	\begin{pmatrix}
+		0 & 0 \\
+		0 & 1
+	\end{pmatrix}
+	\]
+	its transpose is:
+	\[
+	\begin{pmatrix}
+		0 & 0 \\
+		0 & 1
+	\end{pmatrix}
+	\]
+	This gives the fourth column of \([T]_{\alpha}^{\alpha}\) as:
+	\[ \begin{pmatrix}
+		0 \\
+		0 \\
+		0 \\
+		1
+	\end{pmatrix} \]
+	
+	Combining all the columns, the matrix representation \([T]_{\alpha}^{\alpha}\) is:
+	\[ 
+	\begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+	\]
+	
 \end{document}
