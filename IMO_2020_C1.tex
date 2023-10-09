@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{titling}
+
+% Fancy formatting
+\geometry{a4paper, margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{IMO 2020}
+\lhead{Problemas de la lista corta C1}
+\renewcommand{\headrulewidth}{0.5pt}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}{\bfseries\itshape}{\thesubsection}{1em}{}
+\setlength{\droptitle}{-5em}
+
+\title{IMO 2020, problemas de la lista corta C1}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Sea \( n \) un entero positivo. Encuentre el número de permutaciones \( a_1, a_2, \ldots, a_n \) de la secuencia \( 1, 2, \ldots, n \) que satisface
+\[ a_1 \leq 2a_2 \leq 3a_3 \leq \ldots \leq n a_n \]
+Respuesta: El número de tales permutaciones es \( F_{n+1} \), donde \( F_k \) es el \( k^{th} \) número de Fibonacci:
+\[ F_1 = F_2, \quad F_{n+1} = F_n + F_{n-1} \]
+
+\textbf{Solución 1:} Denote por \( P_n \) el número de permutaciones que satisfacen (*). Es fácil ver que \( P_1 = 1 \) y \( P_2 = 2 \).
+
+\textbf{Lema 1.}  Sea \( n \geq 3 \). Si una permutación \( a_1, \ldots, a_n \) satisface (*) entonces o \( a_n = n \) o \( a_{n-1} = n \) y \( a_n = n-1 \).
+
+\textbf{Prueba.} Sea \( k \) el índice para el cual \( a_k = n \). Si \( k = n \) entonces hemos terminado.
+
+Si \( k = n - 1 \) entonces, por (*), tenemos \( n(n-1) = (n-1) a_{n-1} \leq n a_n \), así que \( a_n \geq n - 1 \). Ya que \( a_n \neq a_{n-1} = n \), la única opción para \( a_n \) es \( a_n = n - 1 \).
+
+Ahora suponga que \( k \leq n - 2 \). Para cada \( k < I < n \) tenemos \( kn = k a_k \leq i a_i < n a_i \), así que \( a_i \geq k + 1 \). Además, \( n a_n \geq (n-1) a_{n-1} \geq (n-1)(k+1) = nk + (n-1-k) > nk \), así que \( a_n \geq k + 1 \). Ahora los \( n-k + 1 \) números \( a_k, a_{k+1}, \ldots, a_n \) son todos mayores que \( k \); pero solo hay \( n - k \) tales valores; esto no es posible.
+
+Si \( a_n = n \) entonces \( a_1, a_2, \ldots, a_{n-1} \) debe ser una permutación de los números \( 1, \ldots, n - 1 \) que satisface \( a_1 \leq 2a_2 \leq \ldots \leq (n-1) a_{n-1} \); hay \( P_{n-1} \) tales permutaciones. La última desigualdad en (*), \( (n-1) a_{n-1} \leq n a_n = n^2 \), se cumple automáticamente.
+
+Si \( (a_{n-1}, a_n) = (n, n-1) \), entonces \( a_1, \ldots, a_{n-2} \) debe ser una permutación de \( 1, \ldots, n - 2 \) que satisface \( a_1 \leq \ldots \leq (n-2) a_{n-2} \); hay \( P_{n-2} \) tales permutaciones. Las dos últimas desigualdades en (*) se cumplen automáticamente por \( (n-2) a_{n-2} \leq (n-2)^2 < n (n-1) = (n-1) a_{n-1} = n a_n \).
+
+Por lo tanto, la secuencia \( (P_1, P_2, \ldots) \) satisface la relación de recurrencia \( P_n = P_{n-1} + P_{n-2} \) para \( n \geq 3 \).
+
+Los dos primeros elementos son \( P_1 = F_2 \) y \( P_2 = F_3 \), así que por una inducción trivial tenemos \( P_n = F_{n+1} \).
+
+\textbf{Solución 2:} Afirmamos que todas las permutaciones buscadas son del siguiente tipo. Divida \( \{1, 2, \ldots, n\} \) en conjuntos singulares y pares de números adyacentes. En cada par, intercambie los dos números y mantenga los conjuntos singulares sin cambios.
+
+Tales permutaciones corresponden a un mosaico de un tablero de ajedrez \( 1 \times n \) usando dominós y cuadrados unitarios; es bien sabido que el número de tales mosaicos es el número de Fibonacci \( F_{n+1} \).
+
+La afirmación sigue por la forma de inducción
+
+\textbf{Lema 2.} Suponga que \( a_1 , \ldots, a_n \) es una permutación que satisface (*), y \( k \) es un entero tal que
+\[ 1 \leq k \leq n \] y \( \{a_1, a_2, \ldots, a_{k-1}\} = \{1, 2, \ldots, k - 1\} \). (Si \( k = 1 \), la condición está vacía.) Entonces o \( a_k = k \) o \( a_k = k + 1 \) y \( a_{k+1} = k \).
+
+\textbf{Prueba.} Elija \( t \) con \( a_t = k \). Dado que \( k \notin \{1,2, \ldots, a_k-1\} \), tenemos o bien \( t = k \) o \( t > k \). Si \( t = k \) entonces hemos terminado, así que suponga \( t > k \).
+
+Observe que uno de los números entre los \( t - k \) números \( a_k , a_{k+1} , \ldots , a_{t-1} \) es al menos \( t \), porque solo hay \( t - k - 1 \) valores entre \( k \) y \( t \). Deje \( I \) ser un índice con \( k \leq I < t \) y \( a_i \geq t \); entonces \( kt = t a_t \geq I a_i \geq it \geq kt \), por lo que todas las desigualdades se convierten en igualdades, por lo tanto \( I = k \) y \( a_k = t \). Si \( t = k + 1 \), hemos terminado.
+
+Suponga que \( t > k + 1 \). Entonces la cadena de desigualdades \( kt = k a_k \leq \ldots \leq t a_t = kt \) también debería convertirse en una cadena de igualdades. Desde este punto podemos encontrar contradicciones de varias maneras; por ejemplo, señalando a \( a_{t-1} = \frac{kt}{t-1} = k + \frac{k}{t-1} \) que no puede ser un entero, o considerando el producto de los números \( (k+1) a_{k+1}, \ldots, (t-1) a_{t-1} \); los números \( a_{k+1} , \ldots, a_{t-1} \) son distintos y mayores que \( k \), así que
+\[ (kt)^{t-k-1} = (k+1) a_{k+1} (k+2) a_{k+2} \ldots (t-1) a_{t-1} \geq ((k+1)(k+2) \ldots (t-1))^2 \]
+Observe que \( (k+i)(t-i) = kt + i (t-k-i) > kt \) para \( 1 \leq i < t - k \). Esto lleva a la contradicción
+\[ (kt)^{t-k-1} \geq \prod_{i=1}^{t-k-1} (k+i)(t-i) > (kt)^{t-k-1} \]
+
+\end{document}
